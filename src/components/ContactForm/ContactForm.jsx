@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import css from './ContactForm.module.css';
 import {useSelector, useDispatch } from "react-redux";
-import { addContact } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 import Notiflix from 'notiflix';
 import 'notiflix/src/notiflix.css';
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [number, setNumber] = useState("");
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const setState = {
     name: setName,
-    phone: setPhone
+    number: setNumber
   }
   
   const handleChange = e => {
@@ -24,7 +24,7 @@ export const ContactForm = () => {
 
   const reset= ()=> {
     setName("")
-    setPhone("")
+    setNumber("")
   }
   
   const findContact = name => contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())
@@ -34,7 +34,7 @@ export const ContactForm = () => {
     if (findContact(name)) return Notiflix.Notify.failure(`${name} is already in contacts`);
     dispatch(addContact({
       name,
-      phone
+      number
     }));
     reset();
   }
@@ -58,11 +58,11 @@ export const ContactForm = () => {
               Number    
               <input
                 type="tel"
-                name="phone"
+                name="number"
                 pattern="\+?\d{1,4}?[\-.\s]?\(?\d{1,3}?\)?[\-.\s]?\d{1,4}[\-.\s]?\d{1,4}[\-.\s]?\d{1,9}"
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
-                value={phone}
+                value={number}
                 onChange={handleChange}
                 className={css["contact-input"]}
               />

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import css from "./ErrorMessage.module.css"
-import { selectError } from "redux/selectors"
+import { selectError } from "redux/contacts/selectors"
 
 export const ErrorMessage = () => {
     const error = useSelector(selectError)

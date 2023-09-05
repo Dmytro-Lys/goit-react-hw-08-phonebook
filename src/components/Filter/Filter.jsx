@@ -1,7 +1,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
-import { selectFilter } from 'redux/selectors';
+import { setFilter } from 'redux/contacts/filterSlice';
+import { selectFilter } from 'redux/contacts/selectors';
 import css from '../ContactForm/ContactForm.module.css'
 
 export const Filter = () => {
