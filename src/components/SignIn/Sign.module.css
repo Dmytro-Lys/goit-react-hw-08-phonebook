@@ -1,0 +1,7 @@
+.navlink {
+  color: dodgerblue;
+}
+
+.navlink:hover {
+  color: blue;
+}
