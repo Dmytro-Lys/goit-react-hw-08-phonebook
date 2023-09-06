@@ -3,24 +3,13 @@ import 'notiflix/src/notiflix.css';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
+import { Avatar, Button, TextField, Grid, Box, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import css from '../SignIn/Sign.module.css'
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const defaultTheme = createTheme();
 
 export default function SignUp() {
   const dispatch = useDispatch();
-
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +18,6 @@ export default function SignUp() {
     const  email = data.get('email').trim()
     const  password = data.get('password').trim()
     if (!name||!email||!password) return Notiflix.Notify.failure(`Fill in all fields`);
-    
     dispatch(
       register({
        name,
@@ -37,20 +25,11 @@ export default function SignUp() {
        password
       })
     );
-
-    // console.log({
-    //   name,
-    //   email,
-    //   password
-
-    // });
     
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+ 
         <Box
           sx={{
             marginTop: 8,
@@ -117,7 +96,6 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-      </Container>
-    </ThemeProvider>
+      
   );
 }

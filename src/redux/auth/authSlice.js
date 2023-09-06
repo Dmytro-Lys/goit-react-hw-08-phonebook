@@ -22,7 +22,8 @@ const logOutFulfilled = (state) => {
 
 const refreshUserPending = (state) => { state.isRefreshing = true; }
 
-const refreshUserFulfilled = (state) => {
+const refreshUserFulfilled = (state, { payload }) => {
+      state.user = payload;
       state.isLoggedIn = true;
       state.isRefreshing = false;
 }

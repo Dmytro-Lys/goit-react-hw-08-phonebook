@@ -3,22 +3,14 @@ import 'notiflix/src/notiflix.css';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
+import { Avatar, Button, TextField, Grid, Box, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import css from './Sign.module.css'
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
-const defaultTheme = createTheme();
 
 export default function SignIn() {
   const dispatch = useDispatch();
@@ -38,9 +30,6 @@ export default function SignIn() {
    };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
@@ -93,7 +82,5 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-      </Container>
-    </ThemeProvider>
   );
 }

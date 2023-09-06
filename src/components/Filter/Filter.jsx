@@ -8,7 +8,7 @@ import { setFilter } from 'redux/contacts/filterSlice';
 import { selectFilter } from 'redux/contacts/selectors';
 
 
-export const FilterForm = () => {
+export const Filter = () => {
     const filter = useSelector(selectFilter) || "";
     const dispatch = useDispatch();
     const handleChange = (e) => dispatch(setFilter(e.target.value))
