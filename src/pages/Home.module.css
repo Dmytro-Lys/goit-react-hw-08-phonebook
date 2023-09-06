@@ -8,10 +8,10 @@
   background-image: url(../images/phonebook.jpg);
 }
 .title {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 64;
   text-align: center;
   padding: 20px;
   margin-top: calc(20vh);
-  color: blue;
+  color: mediumblue;
 }
