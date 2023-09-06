@@ -1,21 +1,11 @@
 
 import { useState } from 'react';
-// import css from './ContactForm.module.css';
 import {useSelector, useDispatch } from "react-redux";
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 import Notiflix from 'notiflix';
 import 'notiflix/src/notiflix.css';
-
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const defaultTheme = createTheme();
+import {Button, TextField, Box} from '@mui/material'
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
@@ -55,21 +45,14 @@ export const ContactForm = () => {
 
   
   return (
-      <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
+       <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-           
-          <Typography component="h1" variant="h5" >
-            Add contact
-          </Typography>
-          <Box component="form" onChange={handleChange} onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <Box component="form" onChange={handleChange} onSubmit={handleSubmit} >
             <TextField
               margin="normal"
               required
@@ -104,7 +87,5 @@ export const ContactForm = () => {
             </Button>
           </Box>
         </Box>
-      </Container>
-    </ThemeProvider>
         )
 }

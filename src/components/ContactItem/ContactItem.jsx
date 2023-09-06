@@ -1,4 +1,5 @@
-import css from './ContactItem.module.css'
+import { ListItem, ListItemText, IconButton } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete';
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { deleteContact } from 'redux/contacts/operations';
@@ -7,12 +8,15 @@ export const ContactItem = ({ id, name, number }) => {
     const dispatch = useDispatch();
     const onDel = () => dispatch(deleteContact(id))
     return (
-        <li className={css["list-item"]}>
-            <div className={css["contact-item"]}>
-                <p>{name}: {number}</p>
-                <button type='button' className={css["del-btn"]} onClick={onDel}>Delete</button>    
-            </div>    
-        </li>
+        <ListItem
+            key={id}
+            secondaryAction={
+                <IconButton edge="end" aria-label="delete" onClick={onDel}>
+                    <DeleteIcon />
+                </IconButton>}
+        >
+            <ListItemText primary={`${name}: ${number}`} />
+        </ListItem>
     )
 }
 
