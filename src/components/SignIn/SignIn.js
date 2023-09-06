@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+import 'notiflix/src/notiflix.css';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import * as React from 'react';
@@ -24,6 +26,9 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const  email = data.get('email').trim()
+    const  password = data.get('password').trim()
+    if (!email||!password) return Notiflix.Notify.failure(`Fill in all fields`);
     dispatch(
       logIn({
          email: data.get('email'),
@@ -50,7 +55,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Log in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required

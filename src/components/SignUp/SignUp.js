@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+import 'notiflix/src/notiflix.css';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 import * as React from 'react';
@@ -19,23 +21,30 @@ const defaultTheme = createTheme();
 export default function SignUp() {
   const dispatch = useDispatch();
 
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const  name = data.get('userName').trim()
+    const  email = data.get('email').trim()
+    const  password = data.get('password').trim()
+    if (!name||!email||!password) return Notiflix.Notify.failure(`Fill in all fields`);
+    
     dispatch(
       register({
-       name: `${data.get('firstName')} ${data.get('lastName')}`,
-       email: data.get('email'),
-       password: data.get('password'),
+       name,
+       email,
+       password
       })
     );
 
     // console.log({
-    //   name: `${data.get('firstName')} ${data.get('lastName')}`,
-    //   email: data.get('email'),
-    //   password: data.get('password'),
+    //   name,
+    //   email,
+    //   password
 
     // });
+    
   };
 
   return (
@@ -54,29 +63,19 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Register
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form"  onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} >
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="userName"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="userName"
+                  label="User Name"
                   autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>

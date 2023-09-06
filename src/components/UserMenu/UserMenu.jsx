@@ -13,7 +13,6 @@ export const UserMenu = () => {
     <div className={css.wrapper}>
       <p className={css.username}>{user.email}</p>
       <Button variant="contained"
-        // sx={{ mt: 1, mb: 1 }}
         type="button"
         onClick={() => dispatch(logOut())}>
         <Logout/>
