@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/709.49feae6f.chunk.css","mappings":"AAAA,qBACE,aACF,CAEA,2BACE,UACF","sources":["components/SignIn/Sign.module.css"],"sourcesContent":[".navlink {\n  color: dodgerblue;\n}\n\n.navlink:hover {\n  color: blue;\n}\n"],"names":[],"sourceRoot":""}
