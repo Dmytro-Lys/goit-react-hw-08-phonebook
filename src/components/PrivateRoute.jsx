@@ -1,6 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn, selectIsRefreshing } from '../redux/auth/selectors';
+import PropTypes from "prop-types";
 
 /**
  * - If the route is private and the user is logged in, render the component
@@ -14,3 +15,8 @@ export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
 
   return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 };
+
+PrivateRoute.propTypes = {
+  component: PropTypes.object.isRequired,
+  redirectTo: PropTypes.string
+}

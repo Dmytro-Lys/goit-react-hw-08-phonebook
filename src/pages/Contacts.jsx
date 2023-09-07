@@ -24,7 +24,6 @@ const Contacts = () => {
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="sm">
        <CssBaseline /> 
-        <h1 className={css.title}>Phonebook</h1>
         <h2 className={css.title}>Add contact</h2>
         <Container component="section" maxWidth="xs">
           <ContactForm />
