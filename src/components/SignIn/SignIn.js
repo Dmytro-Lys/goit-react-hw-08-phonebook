@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import * as React from 'react';
 import { Avatar, Button, TextField, Grid, Box, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import css from './Sign.module.css'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
@@ -75,9 +75,9 @@ export default function SignIn() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <NavLink className={css.navlink} to="/register">
+                <Link className={css.link} to="/register">
                   {"Don't have an account? Register"}
-                </NavLink>
+                </Link>
               </Grid>
             </Grid>
           </Box>
